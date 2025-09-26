@@ -81,7 +81,6 @@ public class sixSeven extends LinearOpMode {
     front_right = hardwareMap.get(DcMotor.class, "front_right");
     back_left = hardwareMap.get(DcMotor.class, "back_left");
     front_left = hardwareMap.get(DcMotor.class, "front_left");
-    //catapult = hardwareMap.get(CRServo.class, "catapult");
     ControlHub_VoltageSensor = hardwareMap.get(VoltageSensor.class, "Control Hub");
     
     waitForStart();
