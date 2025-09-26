@@ -26,7 +26,6 @@ public class sixSeven extends LinearOpMode {
   private DcMotor front_right;
   private DcMotor back_left;
   private DcMotor front_left;
-  private CRServo catapult;
   private VoltageSensor ControlHub_VoltageSensor;
   public void rest() {
     back_left.setPower(0);
