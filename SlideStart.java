@@ -80,6 +80,11 @@ public class sixSeven extends LinearOpMode {
     front_right = hardwareMap.get(DcMotor.class, "front_right");
     back_left = hardwareMap.get(DcMotor.class, "back_left");
     front_left = hardwareMap.get(DcMotor.class, "front_left");
+    fire_wheel1 = hardwareMap.get(DcMotor.class, "fire_wheel_left");
+    fire_wheel2 = hardwareMap.get(DcMotor.class, "fire_wheel_top");
+    fire_wheel3 = hardwareMap.get(DcMotor.class, "fire_wheel_left");
+    pickup_wheel1 = hardwareMap.get(DcServo.class, "pickup_wheel_left");
+    pickup_wheel2 = hardwareMap.get(DcServo.class, "pickup_wheel_right");
     ControlHub_VoltageSensor = hardwareMap.get(VoltageSensor.class, "Control Hub");
     
     waitForStart();
@@ -108,12 +113,5 @@ public class sixSeven extends LinearOpMode {
     rest();
     sleep(200);
     //put sensor code here "sensorScan();"
-    /*if (id=21) {
-      ppG();
-    } else if (id=22) {
-        pGp();
-      } else if (id=23) {
-        gPP();
-      }*/
-  }
-}
+    //if (id == 21) {}
+    ppG();
