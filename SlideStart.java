@@ -22,8 +22,16 @@ import com.qualcomm.robotcore.hardware.VoltageSensor;
 @Autonomous(name = "Slide Start")
 public class SlideStart extends LinearOpMode {
 
-    Direction Left = new Direction(left);
-    Direction Right = new Direction(right);
+    static class Direction extends SlideStart {
+        public Direction direction; 
+
+        public Direction(String directionStr) {
+            this.direction = direction;
+        }
+    }
+
+    Direction Left = new Direction("left");
+    
 
     private DcMotor back_right;
     private DcMotor front_right;
@@ -53,7 +61,7 @@ public class SlideStart extends LinearOpMode {
             move(wheel1, wheel2, -1 * wheel3, -1 * wheel4);
         }
     }
-    
+
     public void Turn(double wheel1, double wheel2, double wheel3, double wheel4, Direction direction) {
         if (direction == Left) {
             move(-1 * wheel1, wheel2, -1 * wheel3, wheel4);
@@ -136,13 +144,5 @@ public class SlideStart extends LinearOpMode {
         //put sensor code here "sensorScan();"
         //if (id == 21) {}
         ppG();
-    }
-}
-
-class Direction {
-    public Direction direction;
-
-    public Direction(Direction direction) {
-        this.direction = direction;
     }
 }
