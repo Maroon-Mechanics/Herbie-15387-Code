@@ -19,8 +19,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 
-@Autonomous(name = "Triangle Start Red")
-public class TriangleStart extends LinearOpMode {
+@Autonomous(name = "Slide Start Red")
+public class SlideStart extends LinearOpMode {
 
     public static class Direction {
 
@@ -118,8 +118,8 @@ public class TriangleStart extends LinearOpMode {
         back_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        move(0.8, 0.8, 0.8, 0.8);
-        sleep(1800);
+        move(0.8, 0.8, -0.8, -0.8);
+        sleep(1200);
         rest();
         sleep(200);
         Turn(0.6, 0.6, 0.6, 0.6, Right);
@@ -128,41 +128,40 @@ public class TriangleStart extends LinearOpMode {
         sleep(200);
         for (int i = 0; i <= 3; i++) {
             firing_wheel.setPower(1);
-            sleep(600);
+            sleep(500);
             firing_wheel.setPower(0);
             sleep(200);
         }
         sleep(100);
-        Turn(0.6,0.6,0.6,0.6,Left);
+        Turn(0.6, 0.6, 0.6, 0.6, Left);
         sleep(400);
-        rest();
-        sleep(200);
-        move(-0.6, -0.6, -0.6, -0.6);
-        sleep(1800);
+        move(0.8, 0.8, 0.8, 0.8);
+        sleep(2200);
         rest();
         sleep(200);
         Strafe(0.6, 0.6, 0.6, 0.6, Right);
-        sleep(600);
+        sleep(800);
         rest();
         sleep(1800);
         Strafe(0.6, 0.6, 0.6, 0.6, Left);
-        sleep(600);
+        sleep(800);
         rest();
-        sleep();
+        sleep(200);
         move(0.8, 0.8, 0.8, 0.8);
-        sleep(1800);
+        sleep(2200);
         rest();
         Turn(0.6, 0.6, 0.6, 0.6, Right);
         sleep(400);
         rest();
+        sleep(200);
         for (int i = 0; i <= 3; i++) {
             firing_wheel.setPower(1);
-            sleep(600);
+            sleep(500);
             firing_wheel.setPower(0);
             sleep(200);
         }
         sleep(100);
-        Strafe(0.6, 0.6, 0.6, 0.6, Right);
+        Strafe(0.5, 0.5, 0.5, 0.5, Right);
         sleep(300);
         rest();
     }
