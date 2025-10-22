@@ -1,4 +1,4 @@
-package sixSeven;
+package SlideStart;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -19,19 +19,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 
-@Autonomous(name = "Slide Start")
-public class SlideStart extends LinearOpMode {
+@Autonomous(name = "Triangle Start Red")
+public class TriangleStart extends LinearOpMode {
 
-    static class Direction extends SlideStart {
-        public Direction direction; 
+    public static class Direction {
 
-        public Direction(String directionStr) {
-            this.direction = direction;
-        }
     }
 
-    Direction Left = new Direction("left");
-    
+    Direction Left = new Direction();
+    Direction Right = new Direction();
+
 
     private DcMotor back_right;
     private DcMotor front_right;
@@ -49,7 +46,7 @@ public class SlideStart extends LinearOpMode {
 
     public void move(double wheel1, double wheel2, double wheel3, double wheel4) {
         back_left.setPower(wheel1 * 10 / ControlHub_VoltageSensor.getVoltage());
-        front_right.setPower(wheel2 * 10 / ControlHub_VoltageSensor.getVoltage());
+        front_right.setPower(-1 * wheel2 * 10 / ControlHub_VoltageSensor.getVoltage());
         front_left.setPower(wheel3 * 10 / ControlHub_VoltageSensor.getVoltage());
         back_right.setPower(wheel4 * 10 / ControlHub_VoltageSensor.getVoltage());
     }
@@ -121,28 +118,52 @@ public class SlideStart extends LinearOpMode {
         back_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        move(-0.5, -0.5, -0.5, -0.5);
-        sleep(500);
+        move(0.8, 0.8, 0.8, 0.8);
+        sleep(1800);
         rest();
         sleep(200);
-        move(-0.5, 0.5, 0.5, -0.5);
-        sleep(750);
+        Turn(0.6, 0.6, 0.6, 0.6, Right);
+        sleep(400);
         rest();
         sleep(200);
-        move(0.5, -0.5, -0.5, 0.5);
-        sleep(500);
+        for (int i = 0; i <= 3; i++) {
+            firing_wheel.setPower(1);
+            sleep(600);
+            firing_wheel.setPower(0);
+            sleep(200);
+        }
+        sleep(100);
+        Turn(0.6,0.6,0.6,0.6,Left);
+        sleep(400);
         rest();
         sleep(200);
-        move(-0.5, 0.5, -0.5, 0.5);
-        sleep(125);
+        move(-0.6, -0.6, -0.6, -0.6);
+        sleep(1800);
         rest();
         sleep(200);
-        move(0.5, 0.5, 0.5, 0.5);
-        sleep(200);
+        Strafe(0.6, 0.6, 0.6, 0.6, Right);
+        sleep(600);
         rest();
-        sleep(200);
-        //put sensor code here "sensorScan();"
-        //if (id == 21) {}
-        ppG();
+        sleep(1800);
+        Strafe(0.6, 0.6, 0.6, 0.6, Left);
+        sleep(600);
+        rest();
+        sleep();
+        move(0.8, 0.8, 0.8, 0.8);
+        sleep(1800);
+        rest();
+        Turn(0.6, 0.6, 0.6, 0.6, Right);
+        sleep(400);
+        rest();
+        for (int i = 0; i <= 3; i++) {
+            firing_wheel.setPower(1);
+            sleep(600);
+            firing_wheel.setPower(0);
+            sleep(200);
+        }
+        sleep(100);
+        Strafe(0.6, 0.6, 0.6, 0.6, Right);
+        sleep(300);
+        rest();
     }
 }
