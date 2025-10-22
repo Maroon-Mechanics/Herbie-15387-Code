@@ -20,7 +20,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 
 @Autonomous(name = "Slide Start Red")
-public class SlideStart extends LinearOpMode {
+public class SlideStartRed extends LinearOpMode {
 
     public static class Direction {
 
