@@ -28,7 +28,8 @@ public class SlideStartRed extends LinearOpMode {
 
     Direction Left = new Direction();
     Direction Right = new Direction();
-
+    Direction Forward = new Direction();
+    Direction Backward = new Direction();
 
     private DcMotor back_right;
     private DcMotor front_right;
@@ -51,19 +52,27 @@ public class SlideStartRed extends LinearOpMode {
         back_right.setPower(wheel4 * 10 / ControlHub_VoltageSensor.getVoltage());
     }
 
-    public void Strafe(double wheel1, double wheel2, double wheel3, double wheel4, Direction direction) {
-        if (direction == Left) {
-            move(-1 * wheel1, -1 *wheel2, wheel3, wheel4);
-        } else if (direction == Right) {
-            move(wheel1, wheel2, -1 * wheel3, -1 * wheel4);
+    public void Move(Direction direction) {
+        if (direction == Forward) {
+            move(0.6, 0.6,0.6, 0.6);
+        } else if (direction == Backward) {
+            move(-0.6, -0.6, -0.6, -0.6);
         }
     }
 
-    public void Turn(double wheel1, double wheel2, double wheel3, double wheel4, Direction direction) {
+    public void Strafe(Direction direction) {
         if (direction == Left) {
-            move(-1 * wheel1, wheel2, -1 * wheel3, wheel4);
+            move(-1 * 0.6, -1 * 0.6, 0.6, 0.6);
         } else if (direction == Right) {
-            move(wheel1, -1 * wheel2, wheel3, -1 * wheel4);
+            move(0.6, 0.6, -1 * 0.6, -1 * 0.6);
+        }
+    }
+
+    public void Turn(Direction direction) {
+        if (direction == Left) {
+            move(-1 * 0.4, 0.4, -1 * 0.4, 0.4);
+        } else if (direction == Right) {
+            move(0.4, -1 * 0.4, 0.4, -1 * 0.4;
         }
     }
 
@@ -118,50 +127,50 @@ public class SlideStartRed extends LinearOpMode {
         back_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        move(0.8, 0.8, -0.8, -0.8);
+        Move(Backward);
         sleep(1200);
         rest();
         sleep(200);
-        Turn(0.6, 0.6, 0.6, 0.6, Right);
+        Turn(Right);
         sleep(400);
         rest();
         sleep(200);
-        for (int i = 0; i <= 3; i++) {
+        /*for (int i = 0; i <= 3; i++) {
             firing_wheel.setPower(1);
             sleep(500);
             firing_wheel.setPower(0);
             sleep(200);
-        }
+        }*/
         sleep(100);
-        Turn(0.6, 0.6, 0.6, 0.6, Left);
+        Turn(Left);
         sleep(400);
-        move(0.8, 0.8, 0.8, 0.8);
+        Move(Backward);
         sleep(2200);
         rest();
         sleep(200);
-        Strafe(0.6, 0.6, 0.6, 0.6, Right);
+        Strafe(Right);
         sleep(800);
         rest();
         sleep(1800);
-        Strafe(0.6, 0.6, 0.6, 0.6, Left);
+        Strafe(Left);
         sleep(800);
         rest();
         sleep(200);
-        move(0.8, 0.8, 0.8, 0.8);
+        Move(Forward);
         sleep(2200);
         rest();
-        Turn(0.6, 0.6, 0.6, 0.6, Right);
+        Turn(Right);
         sleep(400);
         rest();
         sleep(200);
-        for (int i = 0; i <= 3; i++) {
+        /*for (int i = 0; i <= 3; i++) {
             firing_wheel.setPower(1);
             sleep(500);
             firing_wheel.setPower(0);
             sleep(200);
-        }
+        }*/
         sleep(100);
-        Strafe(0.5, 0.5, 0.5, 0.5, Right);
+        Strafe(Right);
         sleep(300);
         rest();
     }
