@@ -56,13 +56,13 @@ public class SlideStartRed extends LinearOpMode {
         if (direction == Forward) {
             move(-0.6, -0.6, 0.6, 0.6);
         } else if (direction == Backward) {
-            move(0.6, 0.615, -0.6, -0.615);
+            move(0.6, 0.616, -0.6, -0.616);
         }
     }
 
     public void Strafe(Direction direction) {
         if (direction == Left) {
-            move(-0.62, -0.6, -0.62, -0.6);
+            move(-0.6, -0.54, -0.6, -0.54);
         } else if (direction == Right) {
             move(0.6, 0.6, 0.6, 0.6);
         }
@@ -131,7 +131,7 @@ public class SlideStartRed extends LinearOpMode {
         rest();
         sleep(3000);
         Strafe(Right);
-        sleep(1400);
+        sleep(1100);
         Move(Forward);
         sleep(600);
         rest();
@@ -155,7 +155,6 @@ public class SlideStartRed extends LinearOpMode {
         }*/
         sleep(100);
         Strafe(Right);
-        sleep(300);
+        sleep(600);
         rest();
     }
-}
