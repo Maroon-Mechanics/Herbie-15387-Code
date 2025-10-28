@@ -35,7 +35,7 @@ public class SlideStartRed extends LinearOpMode {
     private DcMotor front_right;
     private DcMotor back_left;
     private DcMotor front_left;
-    private DcMotor firing_wheel;
+    //private DcMotor firing_wheel;
     private VoltageSensor ControlHub_VoltageSensor;
 
     public void rest() {
@@ -47,63 +47,33 @@ public class SlideStartRed extends LinearOpMode {
 
     public void move(double wheel1, double wheel2, double wheel3, double wheel4) {
         back_left.setPower(wheel1 * 10 / ControlHub_VoltageSensor.getVoltage());
-        front_right.setPower(-1 * wheel2 * 10 / ControlHub_VoltageSensor.getVoltage());
+        front_right.setPower(-1* wheel2 * 10 / ControlHub_VoltageSensor.getVoltage());
         front_left.setPower(wheel3 * 10 / ControlHub_VoltageSensor.getVoltage());
         back_right.setPower(wheel4 * 10 / ControlHub_VoltageSensor.getVoltage());
     }
 
     public void Move(Direction direction) {
         if (direction == Forward) {
-            move(0.6, 0.6,0.6, 0.6);
+            move(-0.6, -0.6, 0.6, 0.6);
         } else if (direction == Backward) {
-            move(-0.6, -0.6, -0.6, -0.6);
+            move(0.6, 0.615, -0.6, -0.615);
         }
     }
 
     public void Strafe(Direction direction) {
         if (direction == Left) {
-            move(-1 * 0.6, -1 * 0.6, 0.6, 0.6);
+            move(-0.62, -0.6, -0.62, -0.6);
         } else if (direction == Right) {
-            move(0.6, 0.6, -1 * 0.6, -1 * 0.6);
+            move(0.6, 0.6, 0.6, 0.6);
         }
     }
 
     public void Turn(Direction direction) {
         if (direction == Left) {
-            move(-1 * 0.4, 0.4, -1 * 0.4, 0.4);
+            move(0.4, -0.4, -0.4, 0.4);
         } else if (direction == Right) {
-            move(0.4, -1 * 0.4, 0.4, -1 * 0.4;
+            move(-0.4, 0.4, 0.4, -0.4);
         }
-    }
-
-    public void ppG() {
-        move(-0.5, -0.5, -0.5, -0.5);
-        sleep(500);
-        rest();
-        move(-0.5, 0.5, -0.5, 0.5);
-        sleep(250);
-        rest();
-        sleep(200);
-    }
-
-    public void pGp() {
-        move(-0.5, -0.5, -0.5, -0.5);
-        sleep(1000);
-        rest();
-        move(-0.5, 0.5, -0.5, 0.5);
-        sleep(250);
-        rest();
-        sleep(200);
-    }
-
-    public void gPP() {
-        move(-0.5, -0.5, -0.5, -0.5);
-        sleep(1500);
-        rest();
-        move(-0.5, 0.5, -0.5, 0.5);
-        sleep(250);
-        rest();
-        sleep(200);
     }
 
     /**
@@ -119,7 +89,7 @@ public class SlideStartRed extends LinearOpMode {
         front_right = hardwareMap.get(DcMotor.class, "front_right");
         back_left = hardwareMap.get(DcMotor.class, "back_left");
         front_left = hardwareMap.get(DcMotor.class, "front_left");
-        firing_wheel = hardwareMap.get(DcMotor.class, "firing_wheel");
+        //firing_wheel = hardwareMap.get(DcMotor.class, "firing_wheel");
         ControlHub_VoltageSensor = hardwareMap.get(VoltageSensor.class, "Control Hub");
 
         waitForStart();
@@ -128,13 +98,13 @@ public class SlideStartRed extends LinearOpMode {
         front_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         Move(Backward);
-        sleep(1200);
+        sleep(1000);
         rest();
-        sleep(200);
-        Turn(Right);
         sleep(400);
+        Turn(Right);
+        sleep(650);
         rest();
-        sleep(200);
+        sleep(300);
         /*for (int i = 0; i <= 3; i++) {
             firing_wheel.setPower(1);
             sleep(500);
@@ -143,21 +113,35 @@ public class SlideStartRed extends LinearOpMode {
         }*/
         sleep(100);
         Turn(Left);
-        sleep(400);
+        sleep(480);
         Move(Backward);
-        sleep(2200);
+        sleep(2050);
         rest();
-        sleep(200);
-        Strafe(Right);
-        sleep(800);
-        rest();
-        sleep(1800);
+        sleep(400);
         Strafe(Left);
-        sleep(800);
+        sleep(2900);
+        rest();
+        sleep(300);
+        Move(Backward);
+        sleep(500);
+        rest();
+        sleep(300);
+        Strafe(Left);
+        sleep(1400);
+        rest();
+        sleep(3000);
+        Strafe(Right);
+        sleep(1400);
+        Move(Forward);
+        sleep(600);
+        rest();
+        sleep(300);
+        Strafe(Right);
+        sleep(2500);
         rest();
         sleep(200);
         Move(Forward);
-        sleep(2200);
+        sleep(2050);
         rest();
         Turn(Right);
         sleep(400);
