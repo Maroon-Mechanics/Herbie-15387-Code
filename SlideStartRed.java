@@ -97,7 +97,7 @@ public class SlideStartRed extends LinearOpMode {
         back_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         front_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        Move(Forward);
+        Move(Backward);
         sleep(1000);
         rest();
         sleep(400);
@@ -114,7 +114,7 @@ public class SlideStartRed extends LinearOpMode {
         sleep(100);
         Turn(Right);
         sleep(480);
-        Move(Forward);
+        Move(Backward);
         sleep(2050);
         rest();
         sleep(400);
@@ -122,7 +122,7 @@ public class SlideStartRed extends LinearOpMode {
         sleep(2900);
         rest();
         sleep(300);
-        Move(Forward);
+        Move(Backward);
         sleep(500);
         rest();
         sleep(300);
@@ -132,7 +132,7 @@ public class SlideStartRed extends LinearOpMode {
         sleep(3000);
         Strafe(Left);
         sleep(1100);
-        Move(Backward);
+        Move(Forward);
         sleep(600);
         rest();
         sleep(300);
@@ -140,7 +140,7 @@ public class SlideStartRed extends LinearOpMode {
         sleep(2500);
         rest();
         sleep(200);
-        Move(Backward);
+        Move(Forward);
         sleep(2050);
         rest();
         Turn(Left);
